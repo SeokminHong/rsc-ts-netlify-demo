@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const root = path.resolve(__dirname, '..');
 
+/** @type {import('webpack').Configuration} */
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
@@ -25,11 +26,11 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(root, './dist'),
     filename: 'bundle.js',
   },
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    contentBase: path.resolve(root, './dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
