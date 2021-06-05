@@ -34,7 +34,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'OTK-Player',
+      title: 'rsc-demo',
       template: path.join(root, 'public/index.html'),
       scriptLoading: 'defer',
     }),
