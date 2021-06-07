@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactServerWebpackPlugin = require('react-server-dom-webpack/plugin');
 
 const root = path.resolve(__dirname, '..');
 
@@ -31,12 +32,15 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(root, './dist'),
+    writeToDisk: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'rsc-demo',
       template: path.join(root, 'public/index.html'),
+      inject: true,
       scriptLoading: 'defer',
     }),
+    new ReactServerWebpackPlugin({ isServer: false }),
   ],
 };

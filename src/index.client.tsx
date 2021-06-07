@@ -1,5 +1,29 @@
+import { Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { ErrorBoundary } from 'react-error-boundary';
 
-import Test from './components/Test';
+import { useServerResponse } from './components/Cache.client';
+import Counter from './components/Counter.client';
 
-ReactDOM.unstable_createRoot(document.getElementById('app')!).render(<Test />);
+const Root = () => (
+  <div>
+    <Suspense fallback={null}>
+      <ErrorBoundary FallbackComponent={Error}>
+        <Content />
+      </ErrorBoundary>
+    </Suspense>
+    <div>
+      Client Counter
+      <Counter />
+    </div>
+  </div>
+);
+
+const Content = () => {
+  const response = useServerResponse();
+  return response.readRoot();
+};
+
+const Error = () => <div>Error</div>;
+
+ReactDOM.unstable_createRoot(document.getElementById('app')!).render(<Root />);

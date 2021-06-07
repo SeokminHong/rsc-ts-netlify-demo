@@ -1,0 +1,40 @@
+diff --git a/node_modules/netlify-lambda/lib/build.js b/node_modules/netlify-lambda/lib/build.js
+index 4397356..52f20c4 100644
+--- a/node_modules/netlify-lambda/lib/build.js
++++ b/node_modules/netlify-lambda/lib/build.js
+@@ -137,13 +137,13 @@ async function webpackConfig(
+   var webpackConfig = {
+     mode: webpackMode,
+     resolve: {
+-      extensions: ['.wasm', '.mjs', '.js', '.json', '.ts'],
++      extensions: ['.wasm', '.mjs', '.js', '.json', '.ts', '.tsx'],
+       mainFields: ['module', 'main'],
+     },
+     module: {
+       rules: [
+         {
+-          test: /\.(m?js|ts)?$/,
++          test: /\.(m?js|tsx?)?$/,
+           exclude: new RegExp(
+             `(node_modules|bower_components|${testFilePattern})`,
+           ),
+@@ -177,8 +177,8 @@ async function webpackConfig(
+   };
+   const files = await readdir(dirPath);
+   files.forEach(function (file) {
+-    if (file.match(/\.(m?js|ts)$/)) {
+-      var name = file.replace(/\.(m?js|ts)$/, '');
++    if (file.match(/\.(m?js|tsx?)$/)) {
++      var name = file.replace(/\.(m?js|tsx?)$/, '');
+       if (!name.match(new RegExp(testFilePattern))) {
+         webpackConfig.entry[name] = './' + file;
+       }
+@@ -188,7 +188,7 @@ async function webpackConfig(
+     console.warn(
+       `
+       ---Start netlify-lambda notification---
+-      WARNING: No valid single functions files (ending in .mjs, .js or .ts) were found. 
++      WARNING: No valid single functions files (ending in .mjs, .js, .ts, or .tsx) were found. 
+       This could be because you have nested them in a folder.
+       If this is expected (e.g. you have a zipped function built somewhere else), you may ignore this.
+       ---End netlify-lambda notification---

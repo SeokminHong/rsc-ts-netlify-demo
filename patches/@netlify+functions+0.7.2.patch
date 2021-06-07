@@ -1,0 +1,11 @@
+diff --git a/node_modules/@netlify/functions/src/function/handler.d.ts b/node_modules/@netlify/functions/src/function/handler.d.ts
+index 01485ff..498d8b7 100644
+--- a/node_modules/@netlify/functions/src/function/handler.d.ts
++++ b/node_modules/@netlify/functions/src/function/handler.d.ts
+@@ -7,5 +7,5 @@ export interface HandlerCallback {
+ }
+ 
+ export interface Handler {
+-  (event: Event, context: Context, callback: HandlerCallback): void | Response | Promise<Response>
++  (event: Event, context: Context, callback: HandlerCallback): void | Response | Promise<void | Response>
+ }
