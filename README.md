@@ -15,7 +15,7 @@ yarn install
 yarn develop
 ```
 
-Then, open [http://localhost:8080/](http://localhost:8080/).
+Then, open [http://localhost:8080/](http://localhost:8080/). (Please ignore Netlify Dev's prompt for localhost:8888)
 
 ## TODO
 
@@ -23,6 +23,7 @@ Then, open [http://localhost:8080/](http://localhost:8080/).
 - [ ] Fix error for embedding client components in server components.
 - [ ] Fix `FlightResponse` type.
 - [ ] Connect to database.
+- [ ] Support hot reloading for server components.
 
 ## References
 

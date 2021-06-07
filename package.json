@@ -1,8 +1,7 @@
 {
-  "name": "rsc-demo",
+  "name": "rsc-ts-netlify-demo",
   "version": "0.0.1",
   "description": "React server components demo",
-  "main": "dist/index.js",
   "author": "Seokmin Hong",
   "license": "MIT",
   "dependencies": {
