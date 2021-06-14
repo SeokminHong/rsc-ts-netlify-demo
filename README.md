@@ -21,7 +21,7 @@ Then, open [http://localhost:8080/](http://localhost:8080/). (Please ignore Netl
 
 - [ ] Implement production mode.
 - [ ] Fix error for embedding client components in server components.
-- [ ] Fix `FlightResponse` type.
+- [x] Fix `FlightResponse` type.
 - [ ] Connect to database.
 - [ ] Support hot reloading for server components.
 

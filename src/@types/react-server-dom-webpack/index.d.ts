@@ -1,5 +1,5 @@
 declare module 'react-server-dom-webpack' {
-  type FlightResponse = Response;
+  type FlightResponse = import('react-client').FlightResponse;
   function createFromFetch(
     promiseForResponse: Promise<Response>
   ): FlightResponse;
