@@ -26,4 +26,4 @@ const Content = () => {
 
 const Error = () => <div>Error</div>;
 
-ReactDOM.unstable_createRoot(document.getElementById('app')!).render(<Root />);
+ReactDOM.createRoot(document.getElementById('app')!).render(<Root />);
