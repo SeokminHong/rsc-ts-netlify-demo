@@ -24,6 +24,8 @@ Then, open [http://localhost:8080/](http://localhost:8080/). (Please ignore Netl
 - [x] Fix `FlightResponse` type.
 - [ ] Connect to database.
 - [ ] Support hot reloading for server components.
+- [ ] Support `client.tsx` files to generate `react-client-manifest.json` file.
+- [ ] Change the development command to Webpack compiler hooks instead of `concurrently`.
 
 ## References
 

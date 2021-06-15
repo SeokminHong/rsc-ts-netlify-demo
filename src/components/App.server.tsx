@@ -1,4 +1,4 @@
-import React from 'react';
+import Counter from './Counter.client';
 
 export default () => (
   <div className='main'>
@@ -13,5 +13,6 @@ export default () => (
         ),
       }).format(Date.now())}
     </time>
+    <Counter />
   </div>
 );

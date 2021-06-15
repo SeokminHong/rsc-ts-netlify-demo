@@ -1,5 +1,7 @@
 import React from 'react';
 import { pipeToNodeWritable } from 'react-server-dom-webpack/writer.node.server';
+import path from 'path';
+import { readFileSync } from 'fs';
 import { Writable } from 'stream';
 import { Handler } from '@netlify/functions';
 import App from '../src/components/App.server';
@@ -54,6 +56,11 @@ export const handler: Handler = async function (event, context) {
         },
       })
     );
-    pipeToNodeWritable(React.createElement(App, props), writer, {});
+    const manifest = readFileSync(
+      path.resolve('dist/react-client-manifest.json'),
+      'utf8'
+    );
+    const moduleMap = JSON.parse(manifest);
+    pipeToNodeWritable(React.createElement(App, props), writer, moduleMap);
   });
 };
